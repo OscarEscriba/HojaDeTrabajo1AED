@@ -34,28 +34,6 @@ class RadioAMFM implements Radio {
     }
 }
 
-// Otra posible implementación de Radio
-class OtraImplementacionRadio implements Radio {
-    // Implementación para otra clase que implemente Radio
-    // Puedes agregar la lógica según sea necesario
-    private int frecuencia = 150; // Frecuencia inicial para otra implementación
-
-    @Override
-    public void cambiarFrecuencia() {
-        // Implementación específica para otra implementación de Radio
-    }
-
-    @Override
-    public void avanzarDial() {
-        // Implementación específica para otra implementación de Radio
-    }
-
-    @Override
-    public int getFrecuencia() {
-        return frecuencia;
-    }
-}
-
 public class Ventana extends JFrame implements ActionListener {
     private Radio radio; // Interfaz para la lógica de la radio
 
@@ -132,10 +110,67 @@ public class Ventana extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Resto del código de actionPerformed
+        if (e.getSource() == AM) {
+            isAM = true;
+            Estaciones.setText(Integer.toString(currentFrequency));
+        } else if (e.getSource() == FM) {
+            isAM = false;
+            Estaciones.setText(String.format("%.1f", currentFrequency / 10.0));
+        } else if (e.getSource() == izquierda) {
+            if(radioEncendida) {
+            currentFrequency = (currentFrequency == 530) ? 1610 : currentFrequency - 10;
+            updateFrequencyLabel();
+            }
+        } else if (e.getSource() == derecha) {
+            if(radioEncendida) {
+            currentFrequency = (currentFrequency == 1610) ? 530 : currentFrequency + 10;
+            updateFrequencyLabel();
+            }
+        } else if (e.getSource() == subirVolumen) {
+            if(radioEncendida){
+            volume = (volume == 100) ? 100 : volume + 10;
+            updateVolumeLabel();
+            }
+        } else if (e.getSource() == bajarVolumen) {
+            if(radioEncendida){
+            volume = (volume == 0) ? 0 : volume - 10;
+            updateVolumeLabel();
+            }
+        } else if (e.getSource() == guardarEmisora) {
+            String boton = JOptionPane.showInputDialog("Ingresa el número del botón (1-6) para guardar la emisora:");
+            int botonNumero = Integer.parseInt(boton);
+            guardarEmisora(botonNumero);
+        } if (e.getSource() == power) {
+            if (radioEncendida) {
+                radioEncendida = false;
+                power.setText("Encender");
+                Estaciones.setEnabled(false);
+                disableAllButtons(getContentPane()); 
+            } else {
+                radioEncendida = true;
+                power.setText("Apagar");
+                Estaciones.setEnabled(true);
+                // Actualiza la frecuencia al encender la radio si es necesario
+                updateFrequencyLabel();
+                enableAllButtons(getContentPane());
+            }
+        }
+         else if (e.getSource() == boton1) {
+            seleccionarEmisora(1);
+        }else if (e.getSource() == boton1) {
+            seleccionarEmisora(1);
+        }
+        // Implementa lógica para otros botones si es necesario
+        // Cambia la implementación de la radio con una sola línea de código
+        // Ejemplo: radio = new OtraImplementacionRadio();
+       // cambiarImplementacionRadio(new OtraImplementacionRadio());
     }
 
     // Resto del código de la clase Ventana
+    // Método para cambiar la implementación de la radio
+    private void cambiarImplementacionRadio(Radio nuevaRadio) {
+        radio = nuevaRadio;
+    }
 
     private void updateVolumeLabel() {
         volumenLabel.setText("Volumen: " + volume);
