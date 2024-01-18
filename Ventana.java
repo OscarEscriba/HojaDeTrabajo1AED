@@ -53,6 +53,30 @@ public class Ventana extends JFrame implements ActionListener {
         boton1.addActionListener(this);
         add(boton1);
 
+        boton2= new JButton("2");
+        boton2.setBounds(125,250,50,30);
+        boton2.addActionListener(this);
+        add(boton2);
+
+        boton3= new JButton("3");
+        boton3.setBounds(175,250,50,30);
+        boton3.addActionListener(this);
+        add(boton3);
+
+        boton4= new JButton("4");
+        boton4.setBounds(225,250,50,30);
+        boton4.addActionListener(this);
+        add(boton4);
+
+        boton5= new JButton("5");
+        boton5.setBounds(275,250,50,30);
+        boton5.addActionListener(this);
+        add(boton5);
+        
+        boton6= new JButton("6");
+        boton6.setBounds(325,250,50,30);
+        boton6.addActionListener(this);
+        add(boton6);
         // ... (otros botones)
 
         AM = new JButton("AM");
@@ -66,12 +90,12 @@ public class Ventana extends JFrame implements ActionListener {
         add(FM);
 
         izquierda = new JButton("←");
-        izquierda.setBounds(325, 50, 45, 30);
+        izquierda.setBounds(325, 95, 45, 30);
         izquierda.addActionListener(this);
         add(izquierda);
 
         derecha = new JButton("→");
-        derecha.setBounds(375, 50, 45, 30);
+        derecha.setBounds(375, 95, 45, 30);
         derecha.addActionListener(this);
         add(derecha);
 
