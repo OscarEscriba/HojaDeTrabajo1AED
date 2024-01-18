@@ -179,11 +179,37 @@ public class Ventana extends JFrame implements ActionListener {
                 enableAllButtons(getContentPane());
             }
         }
-         else if (e.getSource() == boton1) {
+        else if (e.getSource() == boton1) {
             seleccionarEmisora(1);
         }else if (e.getSource() == boton1) {
             seleccionarEmisora(1);
         }
+        else if (e.getSource() == boton2) {
+            seleccionarEmisora(2);
+        }else if (e.getSource() == boton2) {
+            seleccionarEmisora(2);
+        }
+        else if (e.getSource() == boton3) {
+            seleccionarEmisora(3);
+        }else if (e.getSource() == boton3) {
+            seleccionarEmisora(3);
+        }
+        else if (e.getSource() == boton4) {
+            seleccionarEmisora(4);
+        }else if (e.getSource()== boton4) {
+            seleccionarEmisora(4);
+        }
+        else if (e.getSource() == boton5) {
+            seleccionarEmisora(5);
+        }else if (e.getSource() == boton5) {
+            seleccionarEmisora(5);
+        }
+        else if (e.getSource() == boton6) {
+            seleccionarEmisora(6);
+        }else if (e.getSource() == boton6) {
+            seleccionarEmisora(6);
+        }
+        
         // Implementa lógica para otros botones si es necesario
         // Cambia la implementación de la radio con una sola línea de código
         // Ejemplo: radio = new OtraImplementacionRadio();
