@@ -20,6 +20,7 @@ public class RadioTest {
         radio.avanzarDial();
 
         assertNotEquals(frecuenciaInicial, radio.getFrecuencia());
+        //frecuencia
     }
 
     @Test
