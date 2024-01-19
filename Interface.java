@@ -1,3 +1,4 @@
+package com.mycompany.ventana;
 public interface Interface {
     int AM = 0;
     int FM = 1;
